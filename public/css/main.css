@@ -64,14 +64,17 @@ button {
   
   .users-container {
     border: solid 1px blue;
-    height: 80%;
+    flex-direction: column;
+    height: 100px;
     margin-top: 15px;
+    overflow: scroll;
     padding: 10px;
     width: 80%;
   }
   
   .users li {
     list-style-type: none;
+    margin: 5px 0;
   }
   
   .send-message-input {
@@ -117,6 +120,7 @@ button {
   
   .messages-container li {
     list-style-type: none;
+    margin: 10px 0;
   }
   
   .send-message-container {
@@ -127,12 +131,14 @@ button {
     border: solid 1px blue;
     height: 80%;
     margin-top: 15px;
+    overflow: scroll;
     padding: 10px;
     width: 95%;
   }
   
   .users li {
     list-style-type: none;
+    margin: 10px 0;
   }
   
   .send-message-input {

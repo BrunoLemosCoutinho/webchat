@@ -22,7 +22,7 @@ function generateNickname(nicknameSize) {
   return nickname;
 }
 
-const randomNickname = generateNickname(16);
+const randomNickname = `User #${generateNickname(6)}`;
 console.log('Random nickname', randomNickname);
 userNickname = randomNickname;
 socket.emit('newConnection', randomNickname);
@@ -87,7 +87,7 @@ socket.on('usersUpdate', (users) => {
     li.innerText = user.nickname;
     li.setAttribute('data-testid', 'online-user');
     if (user.nickname === userNickname) {
-      // atribute to highlight element
+      li.style.cssText += 'color:blue;background-color:yellow';
     }
     usersLi.appendChild(li);
   });

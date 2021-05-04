@@ -1,4 +1,4 @@
-const socket = window.io('https://brunolemos-webchat.herokuapp.com');
+const socket = window.io();
 
 let userNickname = '';
 

@@ -87,7 +87,7 @@ socket.on('usersUpdate', (users) => {
     li.innerText = user.nickname;
     li.setAttribute('data-testid', 'online-user');
     if (user.nickname === userNickname) {
-      li.style.cssText += 'color:blue;background-color:yellow';
+      li.style.cssText += 'color:blue;background-color:#B5E5CF';
     }
     usersLi.appendChild(li);
   });

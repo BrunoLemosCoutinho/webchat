@@ -16,37 +16,41 @@
 </head>
 
 <body>
-  <h1>HORA DA RESENHA</h1>
-  <div class="main-container">
-    <div class="info-container">
-      <div class="nickname-container">
-        <form class="change-nickname" action="">
-          <input
-            type="text"
-            class="nickname-input"
-            name="nickname-input"
-            data-testid="nickname-box"
-            placeholder="Insira seu nickname"
-          >
-          <button class="send-nickname-btn" data-testid="nickname-button">Salvar</button>
-        </form>
+  <header>
+    <h1>HORA DA RESENHA</h1>
+  </header>
+  <main>
+    <div class="main-container">
+      <div class="info-container">
+        <div class="nickname-container">
+          <form class="change-nickname" action="">
+            <input
+              type="text"
+              class="nickname-input"
+              name="nickname-input"
+              data-testid="nickname-box"
+              placeholder="Insira seu nickname"
+            >
+            <button class="send-nickname-btn" data-testid="nickname-button">Salvar</button>
+          </form>
+        </div>
+        <div class="users-container">
+          <ul class="users">
+          </ul>
+        </div>
       </div>
-      <div class="users-container">
-        <ul class="users">
+      <div class="messages-container">
+        <ul class="messages">
         </ul>
       </div>
     </div>
-    <div class="messages-container">
-      <ul class="messages">
-      </ul>
+    <div class="send-message-container">
+      <form class="send-message" action="">
+        <input type="text" class="send-message-input" data-testid="message-box" placeholder="Digite uma nova mensagem">
+        <button class="send-message-btn" data-testid="send-button">Enviar</button>
+      </form>
     </div>
-  </div>
-  <div class="send-message-container">
-    <form class="send-message" action="">
-      <input type="text" class="send-message-input" data-testid="message-box" placeholder="Digite uma nova mensagem">
-      <button class="send-message-btn" data-testid="send-button">Enviar</button>
-    </form>
-  </div>
+  </main>
   <script src="js/main.js"></script>
 </body>
 

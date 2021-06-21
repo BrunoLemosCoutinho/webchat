@@ -14,7 +14,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #000000;
+  background-color: #8c92ac;
   outline: 1px solid slategrey;
 }
 
@@ -29,8 +29,10 @@
 
 
 header {
-  background-color: #eef2f3;
-  /* #e4e5e6 */
+  background-color: #519839;
+  border: 1px solid #bebebe;
+  height: 8vh;
+  padding: 0.5rem;
 }
 
 body {
@@ -39,13 +41,15 @@ body {
 }
 
 h1 {
+  color: #fff;
   font-family: 'Oswald', sans-serif;
   text-align: center;
 }
 
 .info-container {
-  background-color: #274046;
-  border: solid 1px;
+  display: flex;
+  align-items: center;
+  background-color: #cbcfd2;
 }
 
 .nickname-container input {
@@ -54,13 +58,23 @@ h1 {
 
 .users li {
   border-bottom: 1px solid #fff;
-  color: #fff;
   font-weight: 600;
   font-size: 1.2rem;
   list-style-type: none;
-  margin: 0 0 3px 0;
+  margin: 0 0 0.5rem 0;
   padding: 0.5rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
+}
+
+.other_user {
+  background-color: #8b929a;
+  color: #fff;
+}
+
+.session-user {
+  color: #fff;
+  background-color: #519839;
 }
 
 button {
@@ -71,8 +85,55 @@ button {
   border-radius: 5px;
 }
 
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
 .messages-container {
   background-color: #e4e5e6;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+  width: 70%;
+}
+
+
+.messages li {
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.message-card {
+  color: #fff;
+  border-radius: 8px;
+  flex-basis: content;
+  padding:1rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.other-user-message-card {
+  background-color: #8b929a;
+}
+
+.session-user-message-card {
+  background-color: #519839;
+}
+
+.session-user-line {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.send-message-container {
+  margin: 0 auto;
+  padding: 10px;
+  order:-1;
 }
 
 @media screen and (max-width: 700px) {
@@ -93,26 +154,10 @@ button {
   }
   
   .messages-container {
-    border: solid 1px blue;
-    display: flex;
-    flex-direction: column-reverse;
     height: 70%;
-    overflow-y: scroll;
     padding: 10px;
-    width: 85vw;
   }
 
-  .messages-container li {
-    list-style-type: none;
-    margin: 10px 0;
-  }
-  
-  .send-message-container {
-    border: solid 1px blue;
-    margin: 0 auto;
-    padding: 10px;
-    width: 95%;
-  }
   
   .users-container {
     border: solid 1px blue;
@@ -121,7 +166,7 @@ button {
     margin-top: 15px;
     overflow-y: scroll;
     padding: 10px;
-    width: 80%;
+    width: 100%;
   }
   
   .users li {
@@ -142,12 +187,17 @@ button {
 
 }
 
+.nickname {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 @media screen and (min-width: 701px) {
   .main-container {
     display: flex;
     flex-direction: row;
-    height: 50vh;
-    margin: 10px 0 20px;
+    height: 80vh;
+    margin-bottom: 20px;
   }
   
   .info-container {
@@ -158,18 +208,7 @@ button {
   }
   
   .messages-container {
-    border: solid 1px blue;
-    display: flex;
-    flex-direction: column-reverse;
-    margin-left: 15px;
-    overflow-y: scroll;
     padding: 10px;
-    width: 70%;
-  }
-  
-  .messages-container li {
-    list-style-type: none;
-    margin: 10px 0;
   }
   
   .send-message-container {
@@ -181,23 +220,38 @@ button {
     margin-top: 15px;
     overflow-y: scroll;
     padding: 10px;
-    width: 95%;
+    width: 100%;
   }
   
   .send-message-input {
+    font-size: 1.4rem;
     height: 50px;
     padding: 5px;
-    width: 60%;
+    width: 90%;
+  }
+
+  .nickname-container {
+    margin-top: 15px;
+    width: 90%;
   }
   
   .nickname-container input {
     padding: 5px;
     width: 85%;
   }
+
+  .message-card-nickname {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+
+  .message-card-message {
+    font-size: 1.2rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .message-card-timestamp {
+    font-size: 0.9rem;
+  }
 }
-
-
-
-
-
-

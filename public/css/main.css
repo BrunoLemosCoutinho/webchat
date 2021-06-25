@@ -124,6 +124,10 @@ button {
   padding:1rem;
 }
 
+.message-card-nickname {
+  text-decoration: underline;
+}
+
 .other-user-message-card {
   background-color: #8b929a;
 }

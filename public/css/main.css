@@ -23,10 +23,9 @@
 }
 
 ::-webkit-input-placeholder {
+  color:slategrey;
   font-size: 1rem;
-  color:slategrey
 }
-
 
 header {
   background-color: #519839;
@@ -46,43 +45,52 @@ h1 {
   text-align: center;
 }
 
-.info-container {
+.main-container {
   display: flex;
+}
+
+.info-container {
   align-items: center;
   background-color: #cbcfd2;
+  display: flex;
+  padding: 10px;
 }
 
 .nickname-container input {
   border-radius: 8px;
 }
 
+.nickname {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 .users li {
   border-bottom: 1px solid #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   font-weight: 600;
   font-size: 1.2rem;
   list-style-type: none;
   margin: 0 0 0.5rem 0;
   padding: 0.5rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
 }
 
-.other_user {
+.other-user {
   background-color: #8b929a;
   color: #fff;
 }
 
 .session-user {
-  color: #fff;
   background-color: #519839;
+  color: #fff;
 }
 
 button {
+  border: 1px solid #bbb;
+  border-radius: 5px;
   color: #555;
   font: bold 13px arial, helvetica, sans-serif;
   padding:2px;
-  border: 1px solid #bbb;
-  border-radius: 5px;
 }
 
 .chat-container {
@@ -109,11 +117,11 @@ button {
 }
 
 .message-card {
-  color: #fff;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border-radius: 8px;
+  color: #fff;
   flex-basis: content;
   padding:1rem;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 .other-user-message-card {
@@ -129,48 +137,98 @@ button {
   justify-content: flex-end;
 }
 
-
 .send-message-container {
   margin: 0 auto;
   padding: 10px;
   order:-1;
 }
 
-@media screen and (max-width: 700px) {
+footer {
+  align-items: center;
+  background-color: #b7ddb0;
+  display: flex;
+  font-size: 1.2rem;
+  height: 10vh;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+i {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 5px;
+  left: 5px;
+}
+
+/* Mobile */
+@media screen and (min-width: 300px) and (max-width: 550px) {
+
   .main-container {
-    display: flex;
     flex-direction: column;
-    height: 65vh;
-    margin: 10px 0 20px;
-    padding: 10px;
+    height: 72vh;
+    width: 100%;
   }
 
   .info-container {
+    flex-direction: column;
+    height: 25vh;
+    width: 100%;
+  }
+
+  .nickname-container {
+    margin-top: 15px;
+    width: 80%;
+  }
+
+  .change-nickname {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    margin-bottom: 3vh;
-    padding: 10px;
-    width: 85vw;
+  }
+
+  .change-nickname button {
+    margin-top: 10px;
   }
   
   .messages-container {
     height: 70%;
     padding: 10px;
+    width: 100%;
   }
 
+  .send-message {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .send-message button {
+    margin-top: 10px;
+  }
   
   .users-container {
-    border: solid 1px blue;
     flex-direction: column;
     height: 100px;
-    margin-top: 15px;
-    overflow-y: scroll;
+    overflow-y: hidden;
     padding: 10px;
-    width: 100%;
+    width: 90%;
   }
   
   .users li {
     margin: 5px 0;
+  }
+
+  .other-user {
+    display: hidden;
+  }
+
+  .send-message-container {
+    width: 100%;
   }
   
   .send-message-input {
@@ -185,25 +243,109 @@ button {
     width: 80%;
   }
 
+  .message-card-nickname {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+
+  .message-card-message {
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .message-card-timestamp {
+    font-size: 0.6rem;
+  }
+
+  footer {
+    display: none;
+  }
 }
 
-.nickname {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-@media screen and (min-width: 701px) {
+@media screen and (min-width: 551px) and (max-width: 879px) {
   .main-container {
-    display: flex;
+    flex-direction: column;
+    height: 79vh;
+    width: 100%;
+  }
+
+  .info-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nickname-container {
+    margin-top: 15px;
+    width: 80%;
+  }
+  
+  .messages-container {
+    height: 70%;
+    padding: 10px;
+    width: 100%;
+  }
+
+  
+  .users-container {
+    flex-direction: column;
+    height: 100px;
+    margin-top: 15px;
+    overflow-y: hidden;
+    padding: 10px;
+    width: 90%;
+  }
+  
+  .users li {
+    margin: 5px 0;
+  }
+
+  .other-user {
+    display: hidden;
+  }
+
+  .send-message-container {
+    width: 100%;
+  }
+  
+  .send-message-input {
+    height: 50px;
+    margin-right: 5px;
+    padding: 5px;
+    width: 80%;
+  }
+  
+  .nickname-container input {
+    padding: 5px;
+    width: 80%;
+  }
+
+  .message-card-nickname {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+
+  .message-card-message {
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .message-card-timestamp {
+    font-size: 0.6rem;
+  }
+
+}
+
+/* Big screens */
+@media screen and (min-width: 880px) {
+  .main-container {
     flex-direction: row;
-    height: 80vh;
-    margin-bottom: 20px;
+    height: 77vh;
   }
   
   .info-container {
-    display: flex;
     flex-direction: column;
-    padding: 10px;
     width: 30%;
   }
   
@@ -237,7 +379,7 @@ button {
   
   .nickname-container input {
     padding: 5px;
-    width: 85%;
+    width: 80%;
   }
 
   .message-card-nickname {

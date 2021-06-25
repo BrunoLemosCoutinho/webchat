@@ -112,7 +112,7 @@ socket.on('usersUpdate', (users) => {
     if (user.nickname === sessionUserNickname) {
       li.classList.add('session-user');
     } else {
-      li.classList.add('other_user');
+      li.classList.add('other-user');
     }
     usersLi.appendChild(li);
   });

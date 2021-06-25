@@ -175,7 +175,7 @@ i {
 
   .main-container {
     flex-direction: column;
-    height: 72vh;
+    height: 85vh;
     width: 100%;
   }
 
@@ -269,6 +269,7 @@ i {
 }
 
 @media screen and (min-width: 551px) and (max-width: 879px) {
+
   .main-container {
     flex-direction: column;
     height: 79vh;
@@ -344,6 +345,7 @@ i {
 
 /* Big screens */
 @media screen and (min-width: 880px) {
+  
   .main-container {
     flex-direction: row;
     height: 77vh;

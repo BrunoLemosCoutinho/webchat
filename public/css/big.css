@@ -1,0 +1,59 @@
+/* Big screens */
+
+.main-container {
+  flex-direction: row;
+  height: 77vh;
+}
+
+.info-container {
+  flex-direction: column;
+  width: 30%;
+}
+
+.messages-container {
+  padding: 10px;
+}
+
+.send-message-container {
+  width: 100%;
+}
+
+.users-container {
+  height: 80%;
+  margin-top: 15px;
+  overflow-y: scroll;
+  padding: 10px;
+  width: 100%;
+}
+
+.send-message-input {
+  font-size: 1.4rem;
+  height: 50px;
+  padding: 5px;
+  width: 90%;
+}
+
+.nickname-container {
+  margin-top: 15px;
+  width: 90%;
+}
+
+.nickname-container input {
+  padding: 5px;
+  width: 80%;
+}
+
+.message-card-nickname {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+
+.message-card-message {
+  font-size: 1.2rem;
+  margin-bottom: 0.9rem;
+}
+
+.message-card-timestamp {
+  font-size: 0.9rem;
+}

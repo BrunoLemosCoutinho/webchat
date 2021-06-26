@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RESENHA WEBCHAT</title>
+  <title>WEBCHAT</title>
   <script src="/socket.io/socket.io.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link
@@ -13,41 +13,74 @@
     rel="stylesheet"
   >
   <link href="css/main.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  >
+  <link
+    href="css/small.css"
+    rel="stylesheet"
+    media="screen and (max-width: 550px)"
+  >
+  <link
+    href="css/medium.css"
+    rel="stylesheet"
+    media="screen and (min-width: 551px) and (max-width: 879px)"
+  >
+  <link
+    href="css/big.css"
+    rel="stylesheet"
+    media="screen and (min-width: 880px)"
+  >
 </head>
 
 <body>
-  <h1>HORA DA RESENHA</h1>
-  <div class="main-container">
-    <div class="info-container">
-      <div class="nickname-container">
-        <form class="change-nickname" action="">
-          <input
-            type="text"
-            class="nickname-input"
-            name="nickname-input"
-            data-testid="nickname-box"
-            placeholder="Insira seu nickname"
-          >
-          <button class="send-nickname-btn" data-testid="nickname-button">Salvar</button>
-        </form>
+  <header>
+    <h1>WEB CHAT</h1>
+  </header>
+  <main>
+    <div class="main-container">
+      <div class="info-container">
+        <div class="nickname-container">
+          <form class="change-nickname" action="">
+            <input
+              type="text"
+              class="nickname-input"
+              name="nickname-input"
+              data-testid="nickname-box"
+              placeholder="Insira seu nickname"
+            >
+            <button class="send-nickname-btn" data-testid="nickname-button">Salvar</button>
+          </form>
+        </div>
+        <div class="users-container">
+          <ul class="users">
+          </ul>
+        </div>
       </div>
-      <div class="users-container">
-        <ul class="users">
+      <div class="messages-container">
+        <ul class="messages">
         </ul>
+        <div class="send-message-container">
+          <form class="send-message" action="">
+            <input type="text" class="send-message-input" data-testid="message-box" placeholder="Digite uma nova mensagem">
+            <button class="send-message-btn" data-testid="send-button">Enviar</button>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="messages-container">
-      <ul class="messages">
-      </ul>
-    </div>
-  </div>
-  <div class="send-message-container">
-    <form class="send-message" action="">
-      <input type="text" class="send-message-input" data-testid="message-box" placeholder="Digite uma nova mensagem">
-      <button class="send-message-btn" data-testid="send-button">Enviar</button>
-    </form>
-  </div>
+  </main>
+  <footer>
+    Bruno Lemos Coutinho
+    <a href="https://github.com/BrunoLemosCoutinho" target="_blank">
+      <i class="material-icons">code</i>
+      Github
+    </a>
+    <a href="https://www.linkedin.com/in/brunolemoscoutinho/" target="_blank">
+      <i class="material-icons">account_circle</i>
+      LinkedIn
+    </a>
+  </footer>
   <script src="js/main.js"></script>
 </body>
-
 </html>

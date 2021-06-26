@@ -1,7 +1,5 @@
 const socket = window.io();
 
-let userNickname = '';
-
 // user connects
 const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const charList = chars.split('');
@@ -24,13 +22,14 @@ function generateNickname(nicknameSize) {
 
 const randomNickname = `User #${generateNickname(6)}`;
 console.log('Random nickname', randomNickname);
-userNickname = randomNickname;
+sessionStorage.setItem('sessionUserNickname', randomNickname)
 socket.emit('newConnection', randomNickname);
 
 // Send message
 const sendMessageForm = document.querySelector('.send-message');
 sendMessageForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  const userNickname = sessionStorage.getItem('sessionUserNickname');
   const messageInput = document.querySelector('.send-message-input');
   const message = messageInput.value;
   console.log('Nickname que mandou mensagem: ', userNickname);
@@ -44,20 +43,44 @@ sendMessageForm.addEventListener('submit', (event) => {
 const nicknameForm = document.querySelector('.change-nickname');
 nicknameForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  const userNickname = sessionStorage.getItem('sessionUserNickname');
   const nicknameInput = document.querySelector('.nickname-input');
   const newNickname = nicknameInput.value;
   console.log(`${userNickname} mudou seu nickname para: ${newNickname}`);
+  sessionStorage.setItem('sessionUserNickname', newNickname);
   const socketId = socket.id;
   socket.emit('nickname.change', { socketId, newNickname });
   nicknameInput.value = '';
   return false;
 });
 
-function showChatMessage(message) {
+function showChatMessage({timestamp, nickname, chatMessage}) {
+  sessionUserNickname = sessionStorage.getItem('sessionUserNickname');
+  console.log(timestamp, nickname, chatMessage);
   const messagesUl = document.querySelector('.messages');
   const li = document.createElement('li');
   li.setAttribute('data-testid', 'message');
-  li.innerText = message;
+  const messageCard = document.createElement('div')
+  messageCard.classList.add("message-card");
+  const nicknameLabel = document.createElement('p');
+  nicknameLabel.classList.add("message-card-nickname");
+  const messageLabel = document.createElement('p')
+  messageLabel.classList.add("message-card-message");
+  const timestampLabel = document.createElement('p')
+  timestampLabel.classList.add("message-card-timestamp");
+  nicknameLabel.textContent = nickname;
+  messageLabel.textContent = chatMessage;
+  timestampLabel.textContent = timestamp;
+  messageCard.innerHTML = (
+    nicknameLabel.outerHTML + messageLabel.outerHTML + timestampLabel.outerHTML
+  );
+  if (sessionUserNickname === nickname) {
+    messageCard.classList.add('session-user-message-card');
+    li.classList.add('session-user-line');
+  } else {
+    messageCard.classList.add('other-user-message-card');
+  }
+  li.appendChild(messageCard);
   messagesUl.appendChild(li);
 }
 
@@ -75,8 +98,8 @@ socket.on('message', (message) => {
 
 // A client joins the chat or changes the nickname
 socket.on('usersUpdate', (users) => {
+  sessionUserNickname = sessionStorage.getItem('sessionUserNickname');
   const sessionUser = users.find((user) => user.socketId === socket.id);
-  userNickname = sessionUser.nickname;
   const filteredUsers = users.filter((user) => user.socketId !== socket.id);
   const usersToDisplay = [sessionUser, ...filteredUsers];
 
@@ -84,10 +107,12 @@ socket.on('usersUpdate', (users) => {
   usersLi.innerHTML = '';
   usersToDisplay.forEach((user) => {
     const li = document.createElement('li');
-    li.innerText = user.nickname;
+    li.innerHTML = user.nickname;
     li.setAttribute('data-testid', 'online-user');
-    if (user.nickname === userNickname) {
-      li.style.cssText += 'color:blue;background-color:yellow';
+    if (user.nickname === sessionUserNickname) {
+      li.classList.add('session-user');
+    } else {
+      li.classList.add('other-user');
     }
     usersLi.appendChild(li);
   });
